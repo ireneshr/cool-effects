@@ -1,0 +1,20 @@
+# Application settings:
+app:
+  title: cool-efects
+  title-format: "%s | ${app.title}"
+  encoding: UTF-8
+
+# Server settings:
+server:
+  port: 8080
+  ssl:
+    enabled: false
+  servlet:
+    session:
+      persistent: false
+      tracking-modes: cookie
+    contextPath: /
+  tomcat:
+    additional-tld-skip-patterns: "*.jar"
+    
+

@@ -1,0 +1,76 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE"></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+	<link th:href="@{/default/favicon.png}" rel="icon" type="image/png" />
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" crossorigin="anonymous" />
+	<link rel="stylesheet" th:href="@{/default/base.css}" type="text/css" />
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/}"> <img
+				th:src="@{/default/logo.png}" class="d-inline-block align-top"
+				alt="logo"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a th:href="@{/}" class="nav-link act">HOME</a></li>
+				</ul>
+				<ul class="navbar-nav navbar-right" th:if="${user != null}">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <span th:text="${user.name}"></span>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/logout}">Logout</a>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="header">
+		<div class="container-fluid">
+			<th:block layout:fragment="header"></th:block>
+		</div>
+	</div>
+	<main>
+	<div class="container-fluid">
+		<th:block layout:fragment="content"></th:block>
+	</div>
+	</main>
+	<footer>
+		<div class="container-fluid">
+			<div class="row pb-3">
+				<div class="col-md-6">
+					
+				</div>
+				<div class="col-md-6 text-right">
+					<p>
+						<a href="http://localhost.cat.com:8080" class="text-muted"></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"	type="text/javascript"></script>
+	<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+	<th:block layout:fragment="scripts"></th:block>
+</body>
+</html>

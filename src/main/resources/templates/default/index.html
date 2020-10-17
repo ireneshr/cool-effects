@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{default/base}" th:with="title='Home'">
+<head>
+	<title th:text="${title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+	<div class="jumbotron jumbotron-fluid">
+		<div class="row justify-content-center">
+			<div class="col-10">
+				<h4></h4>
+				<p>This is a helper application for .</p>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-6">
+			<h5>Available templates:</h5>
+			<ul th:if="${not #lists.isEmpty(templates)}">
+				<li th:each="template : ${templates}">
+					<a th:href="@{'/' + ${template} + '/'}" th:text="${template}" target="_blank"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-4">
+			
+		</div>
+	</div>
+</th:block>
+</body>
+</html>

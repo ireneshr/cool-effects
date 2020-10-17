@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{default/base}" th:with="title=''">
+<head>
+	<title>Animated Tabs</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="icon">
+			<div class="iconBx active" data-id="content1">
+				<img th:src="@{/animated-tabs/img/image1.jpg}" >
+			</div>
+			<div class="iconBx" data-id="content2">
+				<img src="img/image2.jpg">
+			</div>
+			<div class="iconBx" data-id="content3">
+				<img src="img/image3.jpg">
+			</div>
+			<div class="iconBx" data-id="content4">
+				<img src="img/image4.jpg">
+			</div>
+		</div>
+		<div class="content">
+			<div class="contentBx active" id="content1">
+				<div>
+					<div class="text">
+						<h2>Nike Text</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.
+
+						Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+			<div class="contentBx" id="content2">
+				<div>
+					<div class="text">
+						<h2>Reebok Text</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.
+
+						Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+			<div class="contentBx" id="content3">
+				<div>
+					<div class="text">
+						<h2>DC Text</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.
+
+						Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+			<div class="contentBx" id="content4">
+				<div>
+					<div class="text">
+						<h2>Osiris Text</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.
+
+						Excepteur sint occaecat cupidatat, dolore eu fugiat nulla pariatur non proident. Dolorem sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et fugiat nulla pariatur dolore magna aliqua. Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<script type="text/javascript">
+		var iconBx = document.querySelectorAll('.iconBx')
+		var contentBx = document.querySelectorAll('.contentBx')
+
+		Array.from(iconBx).forEach(icon => {
+			icon.addEventListener('mouseover', function(){
+				
+				Array.from(contentBx).forEach(contentBx => {
+					contentBx.className = 'contentBx'
+				})
+
+				document.getElementById(this.dataset.id).className = 'contentBx active';
+
+				Array.from(iconBx).forEach(iconBx => {
+					iconBx.className = 'iconBx'
+				})
+
+				this.className = 'iconBx active'
+
+			})
+		})
+
+	</script>
+</body>
+</html>
